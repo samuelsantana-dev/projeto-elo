@@ -4,7 +4,7 @@ import Franchisee from './pages/franchisees'
 // import Box1 from './pages/header'
 import FAQ from './pages/faq/faq'
 import Contact from './pages/contact'
-import Photos from './pages/photos'
+import Photos from './pages/photos/photos'
 // import Feedbacks from './pages/feedbacks'
 
 
