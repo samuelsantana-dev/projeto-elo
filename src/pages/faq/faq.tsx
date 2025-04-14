@@ -71,7 +71,7 @@ const FAQ = () => {
         </Typography>
       </Box>
 
-      <Box sx={{ width: '100%', maxWidth: 800 }}>
+      <Box sx={{ width: '100%', maxWidth: 800, display: "flex", flexDirection: "column" }}>
         {faqItems.map((item) => (
           <Accordion
             key={item.id}
@@ -97,19 +97,22 @@ const FAQ = () => {
                 '&.Mui-expanded': {
                   borderBottomLeftRadius: 0,
                   borderBottomRightRadius: 0
-                }
+                },
+                
+                padding: "30px 75px"
               }}
             >
-              <Typography sx={{ fontWeight: 600 }}>
+              <Typography sx={{ fontWeight: 500, fontSize: "20 px", fontFamily: "Inter" }}>
                 {item.id} - {item.question}
               </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ 
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+              backgroundColor: '#003D12',
               borderBottomLeftRadius: '12px',
-              borderBottomRightRadius: '12px'
+              borderBottomRightRadius: '12px',
+              padding: "0 90px",
             }}>
-              <Typography sx={{ color: '#003D12' }}>
+              <Typography sx={{ color: '#FFF', padding: "24px 0", borderTop: "1px solid #FFF" }}>
                 {item.answer}
               </Typography>
             </AccordionDetails>
