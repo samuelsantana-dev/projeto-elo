@@ -7,7 +7,6 @@ import {
   Box
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import styles from './faq.module.css';
 
 type FAQItem = {
   id: number;
@@ -46,47 +45,78 @@ const FAQ = () => {
   };
 
   return (
-      <Box sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#00A331",
-        width: "100%",
-        minHeight: "100vh",
-      }}>
-        <Box textAlign="center" mb={4}>
-          <Typography variant="h2" component="h1" className={styles.title}>
-            PERGUNTAS FREQUENTES
-          </Typography>
-        </Box>
+    <Box sx={{
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#00A331",
+      width: "100%",
+      minHeight: "100vh",
+      py: 8,
+      px: 2
+    }}>
+      <Box textAlign="center" mb={6} sx={{ width: '100%', maxWidth: 800 }}>
+        <Typography 
+          variant="h2" 
+          component="h1"
+          sx={{
+            fontWeight: 'bold',
+            color: 'white',
+            fontSize: { xs: '2rem', md: '2.5rem' },
+            textTransform: 'uppercase'
+          }}
+        >
+          PERGUNTAS FREQUENTES
+        </Typography>
+      </Box>
 
+      <Box sx={{ width: '100%', maxWidth: 800 }}>
         {faqItems.map((item) => (
-          <Accordion 
+          <Accordion
             key={item.id}
             expanded={expanded === item.id}
             onChange={handleChange(item.id)}
-            className={styles.accordion}
             sx={{
-              backgroundColor: "#00581A",
-              color: "white",
+              mb: 2,
+              borderRadius: '12px !important',
+              overflow: 'hidden',
+              '&:before': {
+                display: 'none'
+              }
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon className={styles.expandIcon} />}
-              aria-controls={`panel${item.id}-content`}
-              id={`panel${item.id}-header`}
-              className={`${styles.accordionSummary} ${expanded === item.id ? styles.accordionSummaryExpanded : ''}`}
-              classes={{ content: styles.accordionSummaryContent }}
+              expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
+              sx={{
+                backgroundColor: '#003D12',
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: '#005a1a'
+                },
+                '&.Mui-expanded': {
+                  borderBottomLeftRadius: 0,
+                  borderBottomRightRadius: 0
+                }
+              }}
             >
-              <Typography className={styles.question}>{item.id} - {item.question}</Typography>
+              <Typography sx={{ fontWeight: 600 }}>
+                {item.id} - {item.question}
+              </Typography>
             </AccordionSummary>
-            <AccordionDetails className={styles.accordionDetails}>
-              <Typography className={styles.answer}>{item.answer}</Typography>
+            <AccordionDetails sx={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+              borderBottomLeftRadius: '12px',
+              borderBottomRightRadius: '12px'
+            }}>
+              <Typography sx={{ color: '#003D12' }}>
+                {item.answer}
+              </Typography>
             </AccordionDetails>
           </Accordion>
         ))}
       </Box>
+    </Box>
   );
 };
 
