@@ -1,0 +1,86 @@
+/* faq.module.css */
+
+.container {
+    height: 100%;
+    width: 100%;
+    padding: 3rem 0;
+    background-color: white;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    color: #003D12;
+  }
+  
+  .accordion {
+    width: 743px;
+    height: 150px;
+    margin-bottom: 1rem;
+    box-shadow: none;
+    border: 4px solid #FFFFFF;  
+    border-radius: 52px; /* Cantos mais arredondados */
+    overflow: hidden; /* Garante que o conteúdo respeite o border-radius */
+}
+
+/* Adiciona borda inferior apenas quando expandido */
+.accordionSummaryExpanded {
+    border-bottom: 1px solid #00A331; /* Borda verde claro */
+}
+  
+  .accordion:before {
+    display: none;
+  }
+  
+  .accordionSummary {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.2rem 2rem;
+    min-height: auto !important;
+    transition: all 0.3s ease;
+  }
+  
+  .accordionSummaryContent {
+    margin: 0.5rem 0 !important;
+  }
+  
+  .question {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+  }
+  
+  .accordionDetails {
+    padding: 1.5rem 2rem;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  .answer {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: white;
+  }
+  
+  .expandIcon {
+    color: #00A331;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .container {
+      padding: 2rem 1rem;
+    }
+    
+    .accordion {
+      width: 95%;
+    }
+    
+    .title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
