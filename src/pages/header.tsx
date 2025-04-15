@@ -10,8 +10,8 @@ const BrotegePiso = () => {
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'flex-end', // Alinha conteúdo na parte inferior
-      alignItems: 'flex-start', // Alinha conteúdo à esquerda
+      justifyContent: 'flex-end',
+      alignItems: 'flex-start',
       backgroundImage: `url(${imgHeader})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
