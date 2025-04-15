@@ -1,0 +1,64 @@
+.operador-banner {
+    width: 300px; /* ou o tamanho desejado */
+    height: 150px; /* ou o tamanho desejado */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    background-color: antiquewhite;
+    color: white; /* Cor do texto - ajuste conforme necessário */
+  }
+  
+  /* Overlay escuro para melhor legibilidade do texto */
+  .operador-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Ajuste a opacidade conforme necessário */
+    z-index: 0;
+  }
+  
+  .operador-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .operador-text {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .operador-button {
+    background-color: #007bff; /* cor do botão - ajuste conforme necessário */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: center;
+    transition: background-color 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .operador-button:hover {
+    background-color: #0056b3; /* cor do botão ao passar o mouse */
+  }

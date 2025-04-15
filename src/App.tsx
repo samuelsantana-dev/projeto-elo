@@ -1,9 +1,9 @@
 import FranchiseSteps from './pages/on'
-import Franchisee from './pages/franchisees'
+import Franchisee from './pages/franchisees/franchisees'
 // import FooterSection from './pages/footer'
 // import Box1 from './pages/header'
 import FAQ from './pages/faq/faq'
-import Contact from './pages/contact'
+import Contact from './pages/contact/contact'
 import Photos from './pages/photos/photos'
 // import Feedbacks from './pages/feedbacks'
 
