@@ -10,7 +10,7 @@ const OperadorBanner = () => {
       sx={{
         width: isMobile ? '100%' : '380px',
         height: isMobile ? '220px' : '280px',
-        backgroundImage: 'linear-gradient(135deg, #1a1a1a, #333)', // Substitua por sua imagem
+        backgroundImage: 'linear-gradient(135deg, #1a1a1a, #333)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         borderRadius: '12px',
