@@ -51,7 +51,6 @@ const FAQ = () => {
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: "#00A331",
-      width: "100%",
       minHeight: "100vh",
       py: 8,
       px: 2

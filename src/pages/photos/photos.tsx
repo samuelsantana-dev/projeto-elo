@@ -19,7 +19,6 @@ const Photos = () => {
       flexDirection: "column",
       alignItems: "center",
       backgroundColor: "#DADADA",
-      width: "100%",
       minHeight: "100vh",
       py: 8,
       px: 2

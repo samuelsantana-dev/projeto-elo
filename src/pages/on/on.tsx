@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Typography, Container, Divider } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -7,7 +6,6 @@ const HeroSection = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'center',
   backgroundColor: '#DADADA',
-  width: '100%',
   minHeight: '100vh',
   padding: theme.spacing(8, 2),
   justifyContent: 'center'
@@ -45,7 +43,7 @@ const AwardText = styled(Typography)(({ theme }) => ({
 
 export function On() {
   return (
-    <HeroSection sx={{ backgroundColor: '#1CAD32' }}>
+    <HeroSection>
       <Container maxWidth="md" sx={{ margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center'}} >
         <Typography variant="h5" gutterBottom sx={{  textAlign: 'center' }}>
           Desde de 2005, a Protege e Piso é referência nacional

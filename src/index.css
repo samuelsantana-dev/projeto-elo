@@ -1,0 +1,5 @@
+/* index.css ou seu arquivo de estilos globais */
+html, body, #root {
+    height: 100%;
+    margin: 0;
+  }

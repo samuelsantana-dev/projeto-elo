@@ -1,48 +1,10 @@
-import { Box, Container, Divider, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+// import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { JSX } from "react";
 
 const BoxComponent = (): JSX.Element => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
-  const statistics = [
-    {
-      number: "70+",
-      description: "franquias no\nBrasil e EUA",
-    },
-    {
-      number: "10 mil+",
-      description: "Obras protegidas",
-    },
-    {
-      content: (
-        <Box textAlign="center">
-          <Typography variant={isMobile ? "h4" : "h3"} color="white" sx={{ lineHeight: "1.2" }}>
-            Modelo
-            <br />
-            de <Box component="span" fontWeight="bold">Negócios</Box>
-          </Typography>
-          <Typography variant={isMobile ? "body1" : "h6"} color="white" sx={{ mt: 1 }}>
-            consolidado e escalável
-          </Typography>
-        </Box>
-      ),
-    },
-  ];
-
-  const awards = [
-    {
-      bold: "Prêmio Objeto Brasil 2016",
-      regular: " – Categoria Design Construção Civil",
-    },
-    {
-      bold: "Produto patenteado",
-      regular: " e marca registrada",
-    },
-  ];
 
   return (  
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', background: '#00581A', padding: '20px', alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', background: '#00581A', alignItems: 'center' }}>
     {/* Seção principal do rodapé */}
     <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', maxWidth: '1200px', width: '100%', color: 'white' }}>
       

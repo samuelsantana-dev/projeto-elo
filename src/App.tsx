@@ -1,5 +1,5 @@
 import Franchisee from './pages/franchisees/franchisees'
-// import FooterSection from './pages/footer'
+import FooterSection from './pages/footer'
 import BrotegePiso from './pages/header/header'
 import FAQ from './pages/faq/faq'
 import Contact from './pages/contact/contact'
@@ -13,6 +13,7 @@ function App() {
 
   return (
     <>
+
         <BrotegePiso />
         <On />
         {/* <Feedbacks /> */}
@@ -20,7 +21,7 @@ function App() {
         <Photos />
         <FAQ />
         <Contact />
-        {/* <FooterSection /> */}
+        <FooterSection />
     </>
   )
 }

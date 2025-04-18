@@ -14,7 +14,7 @@ const Franchisee = () => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center'
+      margin: 0
     }}>
       {/* Cabeçalho */}
       <Typography 
