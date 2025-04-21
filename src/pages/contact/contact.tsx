@@ -100,14 +100,18 @@ const Contact = () => {
               label: { color: "#9e9e9e" },
             }}
           />
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+          <Typography variant="subtitle1" color="white">
+            Selecione sua Cidade e Estado
+          </Typography>
           <Box sx={{ display: "flex", gap: 2 }}>
             <Select
               fullWidth
               variant="filled"
               displayEmpty
-              sx={{ backgroundColor: "#222", color: "white" }}
+              sx={{ backgroundColor: "#222", color: "#f5f5f5" }}
             >
-              <MenuItem disabled value="">Cidade</MenuItem>
+              <MenuItem disabled color="#f5f5f5">Cidade</MenuItem>
               <MenuItem value="SaoPaulo">São Paulo</MenuItem>
               <MenuItem value="Rio">Rio de Janeiro</MenuItem>
             </Select>
@@ -115,13 +119,14 @@ const Contact = () => {
               fullWidth
               variant="filled"
               displayEmpty
-              sx={{ backgroundColor: "#222", color: "white" }}
+              sx={{ backgroundColor: "#222", color: "#f5f5f5" }}
             >
-              <MenuItem disabled value="">Estado</MenuItem>
+              <MenuItem disabled color="#f5f5f5">Estado</MenuItem>
               <MenuItem value="SP">SP</MenuItem>
               <MenuItem value="RJ">RJ</MenuItem>
             </Select>
           </Box>
+        </Box>
           <Button
             fullWidth
             variant="contained"
