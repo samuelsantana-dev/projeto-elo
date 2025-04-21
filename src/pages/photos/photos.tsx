@@ -13,11 +13,11 @@ import {
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const images = [
-  "/lovable-uploads/0f0144fc-3977-4a89-9227-4885afbf81ff.png",
-  "/lovable-uploads/0f0144fc-3977-4a89-9227-4885afbf81ff.png",
-  "/lovable-uploads/0f0144fc-3977-4a89-9227-4885afbf81ff.png",
-  "/lovable-uploads/0f0144fc-3977-4a89-9227-4885afbf81ff.png",
-  "/lovable-uploads/0f0144fc-3977-4a89-9227-4885afbf81ff.png",
+  "src/assets/rectangle-33.png",
+  "src/assets/Rectangle 42.png",
+  "src/assets/Rectangle 37.png",
+  "src/assets/Rectangle 42.png",
+  "src/assets/Rectangle 45.png",
 ];
 
 export default function Photos() {
