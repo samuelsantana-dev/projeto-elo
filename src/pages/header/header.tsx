@@ -20,6 +20,7 @@ const BrotegePiso = () => {
       color: 'black',
       padding: isMobile ? '20px' : '40px',
       overflow: 'hidden',
+      position: 'relative',
       '&::before': {
         content: '""',
         position: 'absolute',
@@ -59,7 +60,6 @@ const BrotegePiso = () => {
           <a href="/contato" style={{ textDecoration: 'none', color: '#000000', }}>Contato</a>
         </Box>
 
-        {/* Botões de Ação (Flex Item) */}
         <Box sx={{ display: isMobile ? 'none' : 'flex', alignItems: 'center' }}>
           <Button
             variant="outlined"
@@ -98,7 +98,6 @@ const BrotegePiso = () => {
           </Box>
         </Box>
 
-        {/* Menu Hamburguer para Mobile (Flex Item) */}
         {isMobile && (
           <Box sx={{ marginLeft: 'auto', cursor: 'pointer', fontSize: '1.5rem' }}>
             ☰
@@ -106,7 +105,6 @@ const BrotegePiso = () => {
         )}
       </Box>
 
-      {/* Conteúdo principal alinhado à esquerda inferior (Flex Container) */}
       <Box sx={{
         maxWidth: '600px',
         width: '100%',
