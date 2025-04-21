@@ -60,33 +60,86 @@ const Contact = () => {
         
       </Box>
 
-      {/* Card do formulário - Ajustado para equilibrar o layout */}
       <Card sx={{ 
         backgroundColor: "#111", 
         padding: 4,
         borderRadius: 3, 
         maxWidth: 450,
-        width: "100%",
-        height: "auto 0",
-        alignSelf: "stretch" // Ocupa mesma altura que a seção de texto
+        width: "500px",
+        height: "500px",
+        mt: 10,
+        gap: 22,
       }}>
-        <CardContent sx={{ height: "100%" }}>
-        <TextField fullWidth label="Nome" variant="filled" sx={{ mb: 2, backgroundColor: "#222", input: { color: "white" } }} defaultValue="John Smith - Texto de Exemplo" />
-          <TextField fullWidth label="Email" variant="filled" sx={{ mb: 2, backgroundColor: "#222", input: { color: "white" } }} />
-          <TextField fullWidth label="WhatsApp" variant="filled" sx={{ mb: 2, backgroundColor: "#222", input: { color: "white" } }} />
+        <CardContent sx={{ height: "100%", padding: 0 }}>
+        <Typography sx={{color: "#ffffff"}}>
+            Nome
+          </Typography>
+          <TextField
+            fullWidth
+            label="Nome"
+            variant="filled"
+            sx={{
+              mb: 3,
+              backgroundColor: "#333",
+              input: { color: "#f5f5f5" },
+              label: { color: "#9e9e9e" },
+            }}
+          />
+          <Typography sx={{color: "#ffffff"}}>
+            Email
+          </Typography>
+          <TextField
+            fullWidth
+            label="Email"
+            variant="filled"
+            sx={{
+              mb: 3,
+              backgroundColor: "#333",
+              input: { color: "#f5f5f5" },
+              label: { color: "#9e9e9e" },
+            }}
+          />
+            <Typography sx={{color: "#ffffff"}}>
+            Whatsapp
+          </Typography>
+          <TextField
+            fullWidth
+            label="WhatsApp"
+            variant="filled"
+            sx={{
+              mb: 3,
+              backgroundColor: "#333",
+              input: { color: "#f5f5f5" },
+              label: { color: "#9e9e9e" },
+            }}
+          />
           <Box sx={{ display: "flex", gap: 2 }}>
-            <Select fullWidth variant="filled" displayEmpty sx={{ backgroundColor: "#222", color: "white" }}>
-              <MenuItem disabled>Cidade</MenuItem>
+            <Select
+              fullWidth
+              variant="filled"
+              displayEmpty
+              sx={{ backgroundColor: "#222", color: "white" }}
+            >
+              <MenuItem disabled value="">Cidade</MenuItem>
               <MenuItem value="SaoPaulo">São Paulo</MenuItem>
               <MenuItem value="Rio">Rio de Janeiro</MenuItem>
             </Select>
-            <Select fullWidth variant="filled" displayEmpty sx={{ backgroundColor: "#222", color: "white" }}>
-              <MenuItem disabled>Estado</MenuItem>
+            <Select
+              fullWidth
+              variant="filled"
+              displayEmpty
+              sx={{ backgroundColor: "#222", color: "white" }}
+            >
+              <MenuItem disabled value="">Estado</MenuItem>
               <MenuItem value="SP">SP</MenuItem>
               <MenuItem value="RJ">RJ</MenuItem>
             </Select>
           </Box>
-          <Button fullWidth variant="contained" sx={{ mt: 3, backgroundColor: "#00C853", color: "white", borderRadius: 5 }}>
+          <Button
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, backgroundColor: "#00C853", color: "white", borderRadius: 5 }}
+          >
             Seja um Franqueado!
           </Button>
         </CardContent>
