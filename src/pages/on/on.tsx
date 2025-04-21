@@ -1,11 +1,12 @@
-import { Box, Typography, Container, Divider } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const HeroSection = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  backgroundColor: '#DADADA',
+  backgroundColor: '#1CAD32',
+  color: theme.palette.common.white,
   minHeight: '100vh',
   padding: theme.spacing(8, 2),
   justifyContent: 'center'
@@ -41,6 +42,13 @@ const AwardText = styled(Typography)(({ theme }) => ({
   },
 }));
 
+const hrStyle = {
+  border: '1px solid #fff',
+  width: '60%',
+  marginTop: '24px',
+  marginBottom: '24px',
+};
+
 export function On() {
   return (
     <HeroSection>
@@ -50,7 +58,7 @@ export function On() {
           <br />
           em proteção técnica de superfícies durante obras e reformas.
         </Typography>
-
+        <hr style={hrStyle} />
         <Box
           sx={{
             display: 'flex',
@@ -75,7 +83,7 @@ export function On() {
           </Box>
         </Box>
 
-        <Divider sx={{ backgroundColor: 'white', opacity: 0.3, my: 4 }} />
+        <hr style={hrStyle} />
 
         <Box
           sx={{
