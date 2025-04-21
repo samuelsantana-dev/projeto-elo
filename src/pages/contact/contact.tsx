@@ -10,7 +10,7 @@ const Contact = () => {
       minHeight: "100vh",
       backgroundColor: "#000",
       padding: "60px 40px",
-      boxSizing: "border-box"
+      boxSizing: "border-box",
     }}>
       <Box sx={{ 
         display: "flex", 
@@ -27,35 +27,21 @@ const Contact = () => {
       }}>
         <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
           SEU FUTURO COMO FRANQUEADO  
-          <Typography variant="h2" fontWeight="bold" color="success.main" sx={{ mb: 4 }}>
-          COMEÇA AGORA!
+          <Typography variant="h2" fontWeight="bold" sx={{ mb: 4 }}>
+          COMEÇA  <span style={{ color: "#00ff00" }}>AGORA!</span> 
         </Typography>
         </Typography>
-       
-        <Typography variant="h4" sx={{ mb: 3, lineHeight: 3 }}>
-          Entre em contato e faça parte do nosso
-          <Typography variant="h5" color="success.main" sx={{ mb: 4 }}>time de sucesso.</Typography>
+
+        <Typography variant="h5" fontWeight="bold" sx={{ mb: 2 }}>
+        Entre em contato e faça parte do nosso
+        <Typography variant="h6" fontWeight="bold" color="#00ff00" sx={{ mb: 4 }}>
+        time de sucesso.
         </Typography>
-        {/* <Button
-          variant="contained"
-          color="success"
-          size="large"
-          sx={{ 
-            mt: 2,
-            backgroundColor: "#00C853", 
-            color: "white", 
-            borderRadius: 5, 
-            padding: "16px 32px", 
-            fontSize: "1.1rem",
-            width: "fit-content"
-          }}
-        >
-          Fale diretamente com um especialista pelo WhatsApp
-        </Button> */}
+        </Typography>
         <WhatsAppButtonMUI />
         <Typography variant="body1" sx={{ mt: 3 }}>
           Ou se preferir, <Typography component="span" fontWeight="bold">agilize o atendimento</Typography> <br /> através da nossa atendente virtual!
-          <Typography>
+          <Typography fontWeight="bold" color="success.main">
           É esse balãozinho no canto da sua tela!
         </Typography>
         </Typography>
@@ -69,7 +55,6 @@ const Contact = () => {
         maxWidth: 450,
         width: "500px",
         height: "500px",
-        mt: 10,
         gap: 22,
       }}>
         <CardContent sx={{ height: "100%", padding: 0 }}>

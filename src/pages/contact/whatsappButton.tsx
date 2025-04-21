@@ -8,7 +8,7 @@ interface WhatsAppButtonProps {
 }
 
 const StyledWhatsAppButton = styled(Button)(({ theme }) => ({
-  backgroundColor: '#25D366',
+  backgroundColor: '#05973b',
   color: '#FFFFFF',
   borderRadius: theme.spacing(6),
   padding: theme.spacing(1.5, 3),
@@ -39,11 +39,11 @@ const WhatsAppButtonMUI: React.FC<WhatsAppButtonProps> = ({ phoneNumber = "55119
   return (
     <StyledWhatsAppButton onClick={handleWhatsAppClick}>
       <WhatsAppIconWrapper>
-        <WhatsAppIcon sx={{ color: '#25D366', fontSize: '1.4rem' }} /> 
+        <WhatsAppIcon sx={{ color: '#00ff00', fontSize: '1.4rem' }} /> 
       </WhatsAppIconWrapper>
       <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
         Fale diretamente com um especialista{" "}
-        <Typography component="span" sx={{ color: '#0EFF85', fontWeight: 'bold' }}>
+        <Typography component="span" sx={{ color: '#00ff00', fontWeight: 'bold' }}>
           pelo WhatsApp
         </Typography>
       </Typography>
