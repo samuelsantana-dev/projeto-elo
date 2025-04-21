@@ -1,5 +1,5 @@
 import { Box, Container, Typography, useMediaQuery, useTheme } from "@mui/material";
-import OperadorBanner from "./div";
+import InfoBanner from "./div";
 
 const Franchisee = () => {
   const theme = useTheme();
@@ -66,15 +66,15 @@ const Franchisee = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          flexDirection: "column", // Sempre em coluna
           gap: "40px", // Espaço consistente entre os banners
           padding: isMobile ? '0' : '20px',
           marginBottom: '40px',
           width: '100%'
         }}
       >
-        <OperadorBanner />
-        <OperadorBanner />
+        <InfoBanner title={"OPERADOR"} shortDescription={"Coloque a mão na massa e lidere seu próprio negócio!"} buttonText={"Toque e saiba mais!"}   longDescription="Esta é uma descrição muito mais longa que será exibida quando o banner for clicado e expandido. Você pode incluir mais detalhes e informações relevantes aqui." />
+        <InfoBanner title={"INVESTIDOR"} shortDescription={"Expanda seu patrimônio sem precisar atuar diretamente no negócio!"} buttonText={"Toque e saiba mais!"}   longDescription="Esta é uma descrição muito mais longa que será exibida quando o banner for clicado e expandido. Você pode incluir mais detalhes e informações relevantes aqui."   backgroundColor="lightblue"
+        />
       </Container>
       
       {/* Rodapé */}

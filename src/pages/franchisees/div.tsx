@@ -1,16 +1,42 @@
-import { Box, Typography, Button } from '@mui/material';
-import { useTheme, useMediaQuery } from '@mui/material';
+import { Box, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
+import { SxProps, Theme } from '@mui/material/styles';
+import React, { useState } from 'react';
 
-const OperadorBanner = () => {
+interface InfoBannerProps {
+  title: string;
+  shortDescription: string;
+  longDescription?: string; // Novo prop para o texto longo
+  buttonText: string;
+  backgroundColor?: string;
+  sx?: SxProps<Theme>;
+}
+
+const InfoBanner: React.FC<InfoBannerProps> = ({
+  title,
+  shortDescription,
+  longDescription, // Recebe o texto longo
+  buttonText,
+  backgroundColor,
+  sx,
+}) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [isExpanded, setIsExpanded] = useState(false); // Estado para controlar a expansão
+
+  const mainBackgroundColor = backgroundColor || 'linear-gradient(135deg, #1a1a1a, #333)';
+
+  const handleBannerClick = () => {
+    if (longDescription) {
+      setIsExpanded(!isExpanded);
+    }
+  };
 
   return (
     <Box
       sx={{
         width: isMobile ? '100%' : '380px',
-        height: isMobile ? '220px' : '280px',
-        backgroundImage: 'linear-gradient(135deg, #1a1a1a, #333)',
+        minHeight: isMobile ? '350px' : '500px',
+        backgroundImage: mainBackgroundColor,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         borderRadius: '12px',
@@ -22,10 +48,11 @@ const OperadorBanner = () => {
         overflow: 'hidden',
         color: 'white',
         boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)',
-        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease, min-height 0.3s ease',
         '&:hover': {
           transform: 'translateY(-5px)',
-          boxShadow: '0 12px 24px rgba(0, 255, 0, 0.2)'
+          boxShadow: `0 12px 24px ${theme.palette.success.light}`,
+          cursor: longDescription ? 'pointer' : 'default',
         },
         '&::before': {
           content: '""',
@@ -37,7 +64,9 @@ const OperadorBanner = () => {
           background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7))',
           zIndex: 0,
         },
+        ...sx,
       }}
+      onClick={handleBannerClick}
     >
       <Typography
         variant={isMobile ? "h6" : "h5"}
@@ -47,12 +76,12 @@ const OperadorBanner = () => {
           position: 'relative',
           zIndex: 1,
           textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-          color: '#00ff00'
+          color: theme.palette.success.main,
         }}
       >
-        OPERADOR
+        {title}
       </Typography>
-      
+
       <Typography
         variant={isMobile ? "body1" : "h6"}
         sx={{
@@ -60,36 +89,39 @@ const OperadorBanner = () => {
           position: 'relative',
           zIndex: 1,
           textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-          fontWeight: 500
+          fontWeight: 500,
+          marginBottom: isExpanded ? '16px' : 'auto', 
         }}
       >
-        Coloque a mão na massa e lidere seu próprio negócio!
+        {isExpanded ? longDescription : shortDescription}
       </Typography>
-      
-      <Button
-        variant="contained"
-        sx={{
-          alignSelf: 'center',
-          position: 'relative',
-          zIndex: 1,
-          fontWeight: 'bold',
-          backgroundColor: '#00ff00',
-          color: '#000',
-          '&:hover': {
-            backgroundColor: '#00cc00',
-            transform: 'scale(1.05)'
-          },
-          transition: 'all 0.3s ease',
-          width: isMobile ? '100%' : 'auto',
-          padding: isMobile ? '8px 16px' : '10px 24px',
-          borderRadius: '8px',
-          boxShadow: '0 4px 8px rgba(0, 255, 0, 0.3)'
-        }}
-      >
-        Toque e saiba mais!
-      </Button>
+
+      {!isExpanded && (
+        <Button
+          variant="contained"
+          sx={{
+            alignSelf: 'center',
+            position: 'relative',
+            zIndex: 1,
+            fontWeight: 'bold',
+            backgroundColor: theme.palette.success.main,
+            color: theme.palette.text.primary,
+            '&:hover': {
+              backgroundColor: theme.palette.success.dark,
+              transform: 'scale(1.05)',
+            },
+            transition: 'all 0.3s ease',
+            width: isMobile ? '100%' : 'auto',
+            padding: isMobile ? '8px 16px' : '10px 24px',
+            borderRadius: '8px',
+            boxShadow: `0 4px 8px ${theme.palette.success.light}`,
+          }}
+        >
+          {buttonText}
+        </Button>
+      )}
     </Box>
   );
 };
 
-export default OperadorBanner;
+export default InfoBanner;
