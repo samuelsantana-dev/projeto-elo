@@ -8,7 +8,7 @@ const Contact = () => {
       alignItems: "flex-start",
       minHeight: "100vh",
       backgroundColor: "#000",
-      padding: "60px 40px", // Padding geral aumentado
+      padding: "60px 40px",
       boxSizing: "border-box"
     }}>
       <Box sx={{ 
@@ -17,12 +17,12 @@ const Contact = () => {
         justifyContent: "flex-start", 
         color: "white", 
         maxWidth: 800,
-        width: "100%", // Ocupa toda largura disponível
+        width: "100%",
         textAlign: "left", 
         pr: 4,
         pt: 4,
-        height: "100%", // Ocupa toda altura
-        gap: 4 // Espaçamento maior entre elementos
+        height: "100%",
+        gap: 4 
       }}>
         <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
           SEU FUTURO COMO FRANQUEADO  
