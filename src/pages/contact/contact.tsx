@@ -1,4 +1,5 @@
 import {  Button, Card, CardContent, Typography, Box, MenuItem, Select, TextField } from "@mui/material";
+import WhatsAppButtonMUI from "./whatsappButton";
 
 const Contact = () => {
   return (
@@ -35,7 +36,7 @@ const Contact = () => {
           Entre em contato e faça parte do nosso
           <Typography variant="h5" color="success.main" sx={{ mb: 4 }}>time de sucesso.</Typography>
         </Typography>
-        <Button
+        {/* <Button
           variant="contained"
           color="success"
           size="large"
@@ -50,7 +51,8 @@ const Contact = () => {
           }}
         >
           Fale diretamente com um especialista pelo WhatsApp
-        </Button>
+        </Button> */}
+        <WhatsAppButtonMUI />
         <Typography variant="body1" sx={{ mt: 3 }}>
           Ou se preferir, <Typography component="span" fontWeight="bold">agilize o atendimento</Typography> <br /> através da nossa atendente virtual!
           <Typography>
