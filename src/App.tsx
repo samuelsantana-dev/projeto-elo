@@ -6,6 +6,7 @@ import Contact from './pages/contact/contact'
 import FranchiseSteps from './pages/franchiseStepGuide/franchiseStepGuide'
 import Photos from './pages/photos/photos'
 import { On } from './pages/on/on'
+import TecnologiaExclusiva from './pages/tecnologiaExclusiva/tecnologiaExclusiva'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <On />
         <FranchiseSteps />
         <Franchisee />
+        <TecnologiaExclusiva />
         <Photos />
         <FAQ />
         <Contact />
