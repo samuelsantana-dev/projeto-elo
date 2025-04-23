@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 interface InfoBannerProps {
   title: string;
   shortDescription: string;
-  longDescription?: string; // Novo prop para o texto longo
+  longDescription?: string;
   buttonText: string;
   backgroundColor?: string;
   sx?: SxProps<Theme>;
@@ -14,14 +14,14 @@ interface InfoBannerProps {
 const InfoBanner: React.FC<InfoBannerProps> = ({
   title,
   shortDescription,
-  longDescription, // Recebe o texto longo
+  longDescription,
   buttonText,
   backgroundColor,
   sx,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const [isExpanded, setIsExpanded] = useState(false); // Estado para controlar a expansão
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const mainBackgroundColor = backgroundColor || 'linear-gradient(135deg, #1a1a1a, #333)';
 
