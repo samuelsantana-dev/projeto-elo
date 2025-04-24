@@ -12,7 +12,7 @@ const GradientBackground = styled(Box)({
   position: 'relative',
 });
 
-const RotatedSquare = styled(Paper)(({ theme }) => ({
+const RotatedSquare = styled(Paper)(() => ({
   width: 128,
   height: 128,
   background: '#333',
@@ -75,16 +75,22 @@ const TecnologiaExclusiva = () => {
         </Box>
 
         <Box position="relative" maxWidth={480} mx="auto">
-        <Grid container spacing={1}>
-            {[...Array(4)].map((_, index) => (
-                <Box key={index} sx={{ width: { xs: '50%' }, p: 0.5 }}>
-                <CircleItem elevation={3}>
-                    <InnerCircle>
-                    <SmallCircle />
-                    </InnerCircle>
-                </CircleItem>
-                </Box>
-            ))}
+        <Grid container spacing={1} sx={{ mt: 4, display: 'flex' }}>
+              {[...Array(4)].map((_, index) => (
+                  <Box 
+                    key={index}
+                    sx={{
+                      flexShrink: 0,
+                      p: 0.5
+                    }}
+                  >
+                    <CircleItem elevation={3}>
+                      <InnerCircle>
+                        <SmallCircle />
+                      </InnerCircle>
+                    </CircleItem>
+                  </Box>
+                ))}
             </Grid>
           <FloatingCircle elevation={3}>
             <Typography variant="h4" color="primary" fontWeight="bold">
