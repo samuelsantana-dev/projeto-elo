@@ -74,7 +74,7 @@ export function On() {
           </Box>
           
           <Box sx={{ textAlign: 'center' }}>
-            <HighlightNumber>10 mil +</HighlightNumber>
+            <HighlightNumber>10 mil+</HighlightNumber>
             <HighlightText>Obras protegidas</HighlightText>
           </Box>
           <Box sx={{ textAlign: 'center' }}>
