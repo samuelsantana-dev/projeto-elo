@@ -10,6 +10,7 @@ import Login from './pages/login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ContactDetails from './pages/dashboard/contactDetails';
 import ContactList from './pages/dashboard/contactList';
+import BoxComponent from './pages/footer/footer';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Photos />
       <FAQ />
       <Contact />
+      <BoxComponent />
     </>
   );
 }
