@@ -8,6 +8,8 @@ import { On } from './pages/on/on';
 import TecnologiaExclusiva from './pages/tecnologiaExclusiva/tecnologiaExclusiva';
 import Login from './pages/login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ContactDetails from './pages/dashboard/contactDetails';
+import ContactList from './pages/dashboard/contactList';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/contacts/:id" element={<ContactDetails />} />
+          <Route path="/contacts/" element={<ContactList />} />
         </Routes>
       </BrowserRouter>
 
