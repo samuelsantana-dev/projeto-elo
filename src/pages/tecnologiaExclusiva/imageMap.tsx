@@ -5,6 +5,7 @@ import imageSuperficie from '../../assets/tecnologiaExclusiva/image-superficie.j
 import imageAngulo from '../../assets/tecnologiaExclusiva/image-angulo.png';
 import imagePecasAgrupadas from '../../assets/tecnologiaExclusiva/pecas-agrupadas.png';
 import imageAssimetricos from '../../assets/tecnologiaExclusiva/image-assimetricos.jpg';
+import imageAChanfrados from '../../assets/tecnologiaExclusiva/image-chanfrados.png';
 import { useState } from 'react';
 
 interface HotspotItem {
@@ -18,7 +19,7 @@ interface HotspotItem {
 
 const hotspots: HotspotItem[] = [
   { id: 1, x: 15, y: 15, title: "Superfície com Grips Antiderrapantes", description: "Os vincos na placa ajudam a manter a estabilidade, evitando acidentes, mesmo com a superfície molhada ou em áreas inclinadas.", image: imageSuperficie },
-  { id: 2, x: 45, y: 15, title: "Ponto 2", description: "Descrição para o ponto 2", image: '' },
+  { id: 2, x: 45, y: 15, title: "Cantos Chanfrados", description: "Cria aerodinâmica, direcionando o vento para cima, mantendo os encaixes e resistindo à ventos de até 80 km/h.", image: imageAChanfrados },
   { id: 3, x: 75, y: 15, title: "Cocho de retenção de resíduos", description: "Solução eficaz na retenção de líquidos e sujeira, preservando pisos e superfícies.", image: imageCocho },
   { id: 4, x: 15, y: 45, title: "Superfície em Ângulo", description: "A geometria encaminha os resíduos, facilitando a limpeza e a apresentação.", image: imageAngulo },
   { id: 5, x: 45, y: 45, title: "Encaixes Assimétricos", description: "Sistema de encaixe inteligente, dispensando o uso de adesivos e facilitando a instalação.", image: imageAssimetricos },
