@@ -144,7 +144,7 @@ const ImageMap = () => {
             <HotspotInfo
               elevation={3}
               visible={hoveredHotspotId === hotspot.id}
-              positionBelow={hotspot.y >= 50 || [4, 5, 6].includes(hotspot.id)} // Condição para exibir abaixo
+              positionBelow={hotspot.y >= 50 || [4, 5, 6].includes(hotspot.id)}
             >
               <Box sx={{ p: 1.5 }}>
                 {hotspot.image && (

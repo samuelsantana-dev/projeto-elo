@@ -1,6 +1,7 @@
 import { Box, Typography, Paper, Container, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ImageMap from './imageMap';
+import imageAltoEsquerda from '../../assets/tecnologiaExclusiva/image-alto-esquerda.png';
 
 const GradientBackground = styled(Box)({
   minHeight: '100vh',
@@ -16,8 +17,10 @@ const GradientBackground = styled(Box)({
 const RotatedSquare = styled(Paper)(() => ({
   width: 128,
   height: 128,
-  background: '#333',
+  background: `url(${imageAltoEsquerda}) no-repeat center center`,
+  backgroundSize: 'cover',
   position: 'absolute',
+  transform: 'rotate(45deg)',
 }));
 
 

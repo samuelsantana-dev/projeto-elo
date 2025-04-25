@@ -46,7 +46,7 @@ export default function Photos() {
         CONFIRA{" "}
         <Box component="span" sx={{ color: "#06b224", fontWeight: "bold" }}>
           ALGUMAS OBRAS!
-        </Box>git 
+        </Box> 
       </Typography>
       <Grid
         container
