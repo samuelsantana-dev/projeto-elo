@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch('/api/v1/authentication/token/', {
+      const response = await fetch('http://195.200.6.192:5050/api/v1/authentication/token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,8 +70,8 @@ const Login = () => {
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             <TextField
-              label="Email"
-              type="email"
+              label="text"
+              type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
