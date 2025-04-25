@@ -7,10 +7,10 @@ import { useState } from "react";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    whatsapp: "",
     city: "",
-    state: ""
+    state: "",
+    email: "",
+    whatsapp: ""
   });
 
   const handleChange = (e: any) => {
@@ -31,6 +31,7 @@ const Contact = () => {
     }
 
     try {
+      console.log('formData', formData);
       const response = await fetch("http://195.200.6.192:5050/api/v1/contact/", {
         method: "POST",
         headers: {
