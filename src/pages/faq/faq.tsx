@@ -4,7 +4,9 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
-  Box
+  Box,
+  useMediaQuery,
+  useTheme
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -39,6 +41,8 @@ const faqItems: FAQItem[] = [
 
 const FAQ = () => {
   const [expanded, setExpanded] = useState<number | false>(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
@@ -52,25 +56,30 @@ const FAQ = () => {
       alignItems: "center",
       backgroundColor: "#00A331",
       minHeight: "100vh",
-      py: 8,
-      px: 2
+      py: isMobile ? 4 : 8,
+      px: isMobile ? 1 : 2
     }}>
-      <Box textAlign="center" mb={6} sx={{ width: '100%', maxWidth: 800 }}>
+      <Box textAlign="center" mb={isMobile ? 3 : 6} sx={{ width: '100%', maxWidth: 800, px: isMobile ? 2 : 0 }}>
         <Typography 
           variant="h2" 
           component="h1"
           sx={{
             fontWeight: 'bold',
             color: 'white',
-            fontSize: { xs: '2rem', md: '2.5rem' },
-            textTransform: 'uppercase'
+            fontSize: isMobile ? '1.5rem' : '2.5rem',
+            textTransform: 'uppercase',
+            lineHeight: 1.2
           }}
         >
           PERGUNTAS FREQUENTES
         </Typography>
       </Box>
 
-      <Box sx={{ width: '100%', maxWidth: 800, display: "flex", flexDirection: "column" }}>
+      <Box sx={{ 
+        width: '100%', 
+        maxWidth: 800,
+        px: isMobile ? 1 : 0
+      }}>
         {faqItems.map((item) => (
           <Accordion
             key={item.id}
@@ -97,11 +106,16 @@ const FAQ = () => {
                   borderBottomLeftRadius: 0,
                   borderBottomRightRadius: 0
                 },
-                
-                padding: "30px 75px"
+                padding: isMobile ? '16px 20px' : '30px 75px',
+                minHeight: 'unset !important'
               }}
             >
-              <Typography sx={{ fontWeight: 500, fontSize: "20 px", fontFamily: "Inter" }}>
+              <Typography sx={{ 
+                fontWeight: 500, 
+                fontSize: isMobile ? '0.9rem' : '1.25rem', 
+                fontFamily: "Inter",
+                pr: 1
+              }}>
                 {item.id} - {item.question}
               </Typography>
             </AccordionSummary>
@@ -109,9 +123,14 @@ const FAQ = () => {
               backgroundColor: '#003D12',
               borderBottomLeftRadius: '12px',
               borderBottomRightRadius: '12px',
-              padding: "0 90px",
+              padding: isMobile ? '0 20px' : '0 90px',
             }}>
-              <Typography sx={{ color: '#FFF', padding: "24px 0", borderTop: "1px solid #FFF" }}>
+              <Typography sx={{ 
+                color: '#FFF', 
+                padding: isMobile ? '16px 0' : '24px 0', 
+                borderTop: "1px solid #FFF",
+                fontSize: isMobile ? '0.875rem' : '1rem'
+              }}>
                 {item.answer}
               </Typography>
             </AccordionDetails>
