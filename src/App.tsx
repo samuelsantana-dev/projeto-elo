@@ -1,4 +1,4 @@
-import Franchisee from './pages/franchisees/franchisees';
+import {FranchisePage} from './pages/franchisees/franchisees';
 import BrotegePiso from './pages/header/header';
 import FAQ from './pages/faq/faq';
 import Contact from './pages/contact/contact';
@@ -26,7 +26,7 @@ function App() {
       <BrotegePiso />
       <On />
       <FranchiseSteps />
-      <Franchisee />
+      <FranchisePage />
       <TecnologiaExclusiva />
       <Photos />
       <FAQ />

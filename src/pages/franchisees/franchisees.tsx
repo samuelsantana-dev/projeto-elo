@@ -1,112 +1,95 @@
-import { Box, Container, Typography, useMediaQuery, useTheme } from "@mui/material";
-import InfoBanner from "./div";
+import React from 'react';
+import { Container, Typography, Box, styled } from '@mui/material';
+import {FranchiseOption} from './FranchiseOption';
+import imgFranUm from '../../assets/image-investidor-um.png';
+import imgFranDois from '../../assets/image-investidor-dois.png';
 
-const Franchisee = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+const PageContainer = styled(Box)({
+  backgroundColor: '#000000',
+  color: 'white',
+  minHeight: '100vh',
+  paddingTop: '40px',
+  paddingBottom: '60px',
+});
 
+const Title = styled(Typography)({
+  color: '#00FF66',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  fontSize: '2.5rem',
+  marginBottom: '10px',
+});
+
+const Subtitle = styled(Typography)({
+  color: 'white',
+  textAlign: 'center',
+  fontSize: '1.2rem',
+  marginBottom: '40px',
+});
+
+const InfoBox = styled(Box)(() => ({
+  border: '2px solid #00FF66',
+  borderRadius: '50px',
+  padding: '15px 25px',
+  textAlign: 'center',
+  margin: '0 auto 50px',
+  maxWidth: '900px',
+}));
+
+const OptionsContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  gap: '30px',
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'column',
+  },
+}));
+
+const HighlightText = styled('span')({
+  color: '#00FF66',
+});
+
+export const FranchisePage: React.FC = () => {
   return (
-    <Box sx={{ 
-      minHeight: '100vh',
-      padding: isMobile ? '20px' : '40px',
-      color: 'white',
-      backgroundColor: '#000',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      margin: 0
-    }}>
-      {/* Cabeçalho */}
-      <Typography 
-        variant={isMobile ? "h5" : "h4"} 
-        sx={{ 
-          color: "#00ff00", 
-          fontWeight: "bold",
-          textAlign: "center",
-          marginBottom: "20px",
-          lineHeight: 1.2
-        }}
-      >
-        VENHA SER <Box component="span" sx={{ fontWeight: 900 }}>UM FRANQUEADO!</Box>
-      </Typography>
-      
-      <Typography 
-        variant={isMobile ? "body1" : "subtitle1"} 
-        sx={{ 
-          textAlign: "center",
-          marginBottom: "20px",
-          color: 'rgba(255, 255, 255, 0.9)'
-        }}
-      >
-        Escolha o modelo ideal para você:
-      </Typography>
-      
-      <Typography 
-        variant="body2" 
-        sx={{ 
-          background: "#222", 
-          padding: isMobile ? '12px' : '15px',
-          borderRadius: "10px", 
-          display: "inline-block",
-          maxWidth: '800px',
-          margin: '0 auto 40px',
-          textAlign: 'center',
-          width: '90%',
-          boxShadow: '0 4px 6px rgba(0, 255, 0, 0.1)',
-          border: '1px solid rgba(0, 255, 0, 0.1)'
-        }}
-      >
-        Dois formatos de franquia, um mesmo sucesso. <Box component="span" sx={{ fontWeight: 600 }}>Passe o mouse sobre as opções abaixo</Box> para ver os detalhes e descubra qual faz mais sentido para você.
-      </Typography>
-      
-      <Container 
-        maxWidth="lg"
-        sx={{ 
-          margin: "0 auto",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "40px", // Espaço consistente entre os banners
-          padding: isMobile ? '0' : '20px',
-          marginBottom: '40px',
-          width: '100%'
-        }}
-      >
-        <InfoBanner title={"OPERADOR"} shortDescription={"Coloque a mão na massa e lidere seu próprio negócio!"} buttonText={"Toque e saiba mais!"}   longDescription="Esta é uma descrição muito mais longa que será exibida quando o banner for clicado e expandido. Você pode incluir mais detalhes e informações relevantes aqui." />
-        <InfoBanner title={"INVESTIDOR"} shortDescription={"Expanda seu patrimônio sem precisar atuar diretamente no negócio!"} buttonText={"Toque e saiba mais!"}   longDescription="Esta é uma descrição muito mais longa que será exibida quando o banner for clicado e expandido. Você pode incluir mais detalhes e informações relevantes aqui."   backgroundColor="lightblue"
-        />
+    <PageContainer>
+      <Container maxWidth="lg">
+        <Title variant="h1">
+          VENHA SER <HighlightText>UM FRANQUEADO!</HighlightText>
+        </Title>
+        
+        <Subtitle variant="h2">
+          Escolha o modelo ideal para você:
+        </Subtitle>
+        
+        <InfoBox>
+          <Typography variant="body1">
+            Dois formatos de franquia, um mesmo sucesso. <strong>Passe o mouse sobre as opções abaixo para ver os detalhes</strong> e descubra qual faz mais sentido para você.
+          </Typography>
+        </InfoBox>
+        
+        <OptionsContainer>
+          <FranchiseOption 
+            type="OPERADOR" 
+            imageSrc={imgFranUm}
+            description="Coloque a mão na massa e lidere seu próprio negócio!"
+          />
+          <FranchiseOption 
+            type="INVESTIDOR" 
+            imageSrc={imgFranDois} 
+            description="Expanda seu patrimônio sem precisar atuar diretamente no negócio!"
+          />
+        </OptionsContainer>
+        
+        <Box sx={{ textAlign: 'center', mt: 6 }}>
+          <Typography variant="body1" sx={{ mb: 2 }}>
+            Seja qual for seu perfil, há um modelo de negócio ideal para você!
+          </Typography>
+          
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Vamos conversar e definir qual é o melhor caminho
+            para você entrar nesse <HighlightText>mercado de alto potencial!</HighlightText>
+          </Typography>
+        </Box>
       </Container>
-      
-      {/* Rodapé */}
-      <Typography 
-        variant={isMobile ? "body1" : "h6"} 
-        sx={{ 
-          textAlign: "center",
-          marginBottom: "20px",
-          maxWidth: '800px',
-          padding: isMobile ? '0 10px' : '0',
-          color: 'rgba(255, 255, 255, 0.9)'
-        }}
-      >
-        Seja qual for seu perfil, há um modelo de negócio ideal para você!
-      </Typography>
-      
-      <Typography 
-        variant={isMobile ? "body1" : "h6"} 
-        sx={{ 
-          fontWeight: "bold", 
-          color: "#00ff00",
-          textAlign: "center",
-          maxWidth: '800px',
-          margin: '0 auto',
-          padding: isMobile ? '0 10px' : '0',
-          lineHeight: 1.4
-        }}
-      >
-        Vamos conversar e definir qual é o melhor caminho para você entrar nesse <Box component="span" sx={{ fontWeight: 900 }}>mercado de alto potencial!</Box>
-      </Typography>
-    </Box>
+    </PageContainer>
   );
 };
-
-export default Franchisee;
