@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-irregular-whitespace */
-import { Button, Card, CardContent, Typography, Box, MenuItem, Select, TextField } from "@mui/material";
+import { Button, Card, CardContent, Typography, Box, MenuItem, Select, TextField, useMediaQuery, useTheme } from "@mui/material";
 import WhatsAppButtonMUI from "./whatsappButton";
 import { useState } from "react";
 
@@ -12,6 +12,9 @@ const Contact = () => {
     email: "",
     whatsapp: ""
   });
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -23,7 +26,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.whatsapp) {
       console.error("Please fill in all required fields");
@@ -58,64 +61,115 @@ const Contact = () => {
   };
 
   return (
-    <Box sx={{ 
-      display: "flex", 
-      justifyContent: "space-evenly", 
-      alignItems: "flex-start",
+    <Box sx={{
+      display: "flex",
+      justifyContent: "space-evenly",
+      alignItems: "center",
       minHeight: "100vh",
       backgroundColor: "#000",
-      padding: "60px 40px",
+      padding: isMobile ? "40px 16px" : isTablet ? "60px 24px" : "60px 40px",
       boxSizing: "border-box",
-      flexDirection: { xs: "column", md: "row" },
-      gap: { xs: 4, md: 0 }
+      flexDirection: isMobile ? "column" : "row",
+      gap: isMobile ? 4 : 0
     }}>
-      <Box sx={{ 
-        display: "flex", 
-        flexDirection: "column", 
-        justifyContent: "flex-start", 
-        color: "white", 
+      {/* Left Content */}
+      <Box sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        color: "white",
         maxWidth: 800,
         width: "100%",
-        textAlign: "left", 
-        pr: { md: 4 },
-        pt: 4,
+        textAlign: isMobile ? "center" : "left",
+        pr: isMobile ? 0 : 4,
+        pb: isMobile ? 4 : 0,
+        pt: isMobile ? 0 : 4,
         height: "100%",
-        gap: 4 
+        gap: isMobile ? 2 : 4
       }}>
-        <Typography variant="h4" fontWeight="bold">
-          SEU FUTURO COMO FRANQUEADO  
-          <Typography variant="h2" fontWeight="bold" sx={{ mb: 4, mt: 1 }}>
-            COMEÇA <span style={{ color: "#00ff00" }}>AGORA!</span> 
+        <Typography variant={isMobile ? "h5" : isTablet ? "h4" : "h3"} fontWeight="bold">
+          SEU FUTURO COMO FRANQUEADO
+          <Typography 
+            variant={isMobile ? "h4" : isTablet ? "h3" : "h2"} 
+            fontWeight="bold" 
+            sx={{ 
+              mb: isMobile ? 2 : 4, 
+              mt: 1,
+              lineHeight: 1.2
+            }}
+          >
+            COMEÇA <span style={{ color: "#00ff00" }}>AGORA!</span>
           </Typography>
         </Typography>
 
-        <Typography variant="h5" fontWeight="bold">
+        <Typography variant={isMobile ? "h6" : "h5"} fontWeight="bold">
           Entre em contato e faça parte do nosso
-          <Typography variant="h6" fontWeight="bold" color="#00ff00" sx={{ mt: 1 }}>
+          <Typography 
+            variant={isMobile ? "subtitle1" : "h6"} 
+            fontWeight="bold" 
+            color="#00ff00" 
+            sx={{ 
+              mt: 1,
+              lineHeight: 1.2
+            }}
+          >
             time de sucesso.
           </Typography>
         </Typography>
-        <WhatsAppButtonMUI />
-        <Typography variant="body1" sx={{ mt: 3 }}>
-          Ou se preferir, <Typography component="span" fontWeight="bold">agilize o atendimento</Typography> <br /> 
+        
+        <Box sx={{ 
+          display: "flex", 
+          justifyContent: isMobile ? "center" : "flex-start",
+          mt: isMobile ? 1 : 0
+        }}>
+          <WhatsAppButtonMUI />
+        </Box>
+        
+        <Typography 
+          variant="body1" 
+          sx={{ 
+            mt: isMobile ? 1 : 3, 
+            fontSize: isMobile ? "0.875rem" : isTablet ? "0.95rem" : "1rem",
+            textAlign: isMobile ? "center" : "left"
+          }}
+        >
+          Ou se preferir, <Typography component="span" fontWeight="bold">agilize o atendimento</Typography> <br />
           através da nossa atendente virtual!
-          <Typography fontWeight="bold" color="success.main">
+          <Typography 
+            fontWeight="bold" 
+            color="success.main"
+            sx={{
+              display: "block",
+              mt: 1
+            }}
+          >
             É esse balãozinho no canto da sua tela!
           </Typography>
         </Typography>
       </Box>
 
-      <Card sx={{ 
-        backgroundColor: "#111", 
-        padding: 4,
-        borderRadius: 3, 
+      {/* Form Card */}
+      <Card sx={{
+        backgroundColor: "#111",
+        padding: isMobile ? 2 : isTablet ? 3 : 4,
+        borderRadius: 3,
         maxWidth: 450,
         width: "100%",
-        minHeight: 500
+        minHeight: isMobile ? "auto" : 500,
       }}>
-        <CardContent sx={{ height: "100%", padding: 0 }}>
+        <CardContent sx={{ 
+          height: "100%", 
+          padding: 0,
+          '&:last-child': {
+            paddingBottom: 0
+          }
+        }}>
           <form onSubmit={handleSubmit}>
-            <Typography sx={{ color: "#ffffff", mb: 1 }}>
+            <Typography sx={{ 
+              color: "#ffffff", 
+              mb: 1, 
+              fontSize: isMobile ? "0.875rem" : "1rem" 
+            }}>
               Nome *
             </Typography>
             <TextField
@@ -126,14 +180,24 @@ const Contact = () => {
               variant="filled"
               required
               sx={{
-                mb: 3,
+                mb: isMobile ? 2 : 3,
                 backgroundColor: "#333",
-                input: { color: "#f5f5f5" },
-                label: { color: "#9e9e9e" },
+                input: { 
+                  color: "#f5f5f5", 
+                  fontSize: isMobile ? "0.875rem" : "1rem",
+                  padding: isMobile ? "12px 12px" : "16px 12px"
+                },
+                '& .MuiFilledInput-root': {
+                  borderRadius: '4px'
+                }
               }}
             />
 
-            <Typography sx={{ color: "#ffffff", mb: 1 }}>
+            <Typography sx={{ 
+              color: "#ffffff", 
+              mb: 1, 
+              fontSize: isMobile ? "0.875rem" : "1rem" 
+            }}>
               Email *
             </Typography>
             <TextField
@@ -145,14 +209,24 @@ const Contact = () => {
               variant="filled"
               required
               sx={{
-                mb: 3,
+                mb: isMobile ? 2 : 3,
                 backgroundColor: "#333",
-                input: { color: "#f5f5f5" },
-                label: { color: "#9e9e9e" },
+                input: { 
+                  color: "#f5f5f5", 
+                  fontSize: isMobile ? "0.875rem" : "1rem",
+                  padding: isMobile ? "12px 12px" : "16px 12px"
+                },
+                '& .MuiFilledInput-root': {
+                  borderRadius: '4px'
+                }
               }}
             />
 
-            <Typography sx={{ color: "#ffffff", mb: 1 }}>
+            <Typography sx={{ 
+              color: "#ffffff", 
+              mb: 1, 
+              fontSize: isMobile ? "0.875rem" : "1rem" 
+            }}>
               Whatsapp *
             </Typography>
             <TextField
@@ -163,18 +237,36 @@ const Contact = () => {
               variant="filled"
               required
               sx={{
-                mb: 3,
+                mb: isMobile ? 2 : 3,
                 backgroundColor: "#333",
-                input: { color: "#f5f5f5" },
-                label: { color: "#9e9e9e" },
+                input: { 
+                  color: "#f5f5f5", 
+                  fontSize: isMobile ? "0.875rem" : "1rem",
+                  padding: isMobile ? "12px 12px" : "16px 12px"
+                },
+                '& .MuiFilledInput-root': {
+                  borderRadius: '4px'
+                }
               }}
             />
 
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-              <Typography variant="subtitle1" color="white">
+              <Typography 
+                variant="subtitle1" 
+                color="white" 
+                sx={{ 
+                  fontSize: isMobile ? "0.875rem" : "1rem",
+                  mb: 1
+                }}
+              >
                 Selecione sua Cidade e Estado
               </Typography>
-              <Box sx={{ display: "flex", gap: 2 }}>
+              <Box sx={{ 
+                display: "flex", 
+                flexDirection: isMobile ? "column" : "row", 
+                gap: isMobile ? 2 : 2,
+                mb: isMobile ? 2 : 3
+              }}>
                 <Select
                   fullWidth
                   name="city"
@@ -182,11 +274,18 @@ const Contact = () => {
                   onChange={handleChange}
                   variant="filled"
                   displayEmpty
-                  sx={{ backgroundColor: "#222", color: "#f5f5f5" }}
+                  sx={{ 
+                    backgroundColor: "#222", 
+                    color: "#f5f5f5", 
+                    fontSize: isMobile ? "0.875rem" : "1rem",
+                    '& .MuiSelect-filled': {
+                      padding: isMobile ? '12px 12px' : '16px 12px'
+                    }
+                  }}
                 >
-                  <MenuItem value="" disabled>Cidade</MenuItem>
-                  <MenuItem value="SaoPaulo">São Paulo</MenuItem>
-                  <MenuItem value="Rio">Rio de Janeiro</MenuItem>
+                  <MenuItem value="" disabled sx={{ fontSize: isMobile ? "0.875rem" : "1rem" }}>Cidade</MenuItem>
+                  <MenuItem value="SaoPaulo" sx={{ fontSize: isMobile ? "0.875rem" : "1rem" }}>São Paulo</MenuItem>
+                  <MenuItem value="Rio" sx={{ fontSize: isMobile ? "0.875rem" : "1rem" }}>Rio de Janeiro</MenuItem>
                 </Select>
                 <Select
                   fullWidth
@@ -195,11 +294,18 @@ const Contact = () => {
                   onChange={handleChange}
                   variant="filled"
                   displayEmpty
-                  sx={{ backgroundColor: "#222", color: "#f5f5f5" }}
+                  sx={{ 
+                    backgroundColor: "#222", 
+                    color: "#f5f5f5", 
+                    fontSize: isMobile ? "0.875rem" : "1rem",
+                    '& .MuiSelect-filled': {
+                      padding: isMobile ? '12px 12px' : '16px 12px'
+                    }
+                  }}
                 >
-                  <MenuItem value="" disabled>Estado</MenuItem>
-                  <MenuItem value="SP">SP</MenuItem>
-                  <MenuItem value="RJ">RJ</MenuItem>
+                  <MenuItem value="" disabled sx={{ fontSize: isMobile ? "0.875rem" : "1rem" }}>Estado</MenuItem>
+                  <MenuItem value="SP" sx={{ fontSize: isMobile ? "0.875rem" : "1rem" }}>SP</MenuItem>
+                  <MenuItem value="RJ" sx={{ fontSize: isMobile ? "0.875rem" : "1rem" }}>RJ</MenuItem>
                 </Select>
               </Box>
             </Box>
@@ -208,11 +314,13 @@ const Contact = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ 
-                mt: 3, 
-                backgroundColor: "#00C853", 
-                color: "white", 
+              sx={{
+                mt: isMobile ? 2 : 3,
+                backgroundColor: "#00C853",
+                color: "white",
                 borderRadius: 5,
+                fontSize: isMobile ? "0.875rem" : "1rem",
+                padding: isMobile ? "10px 16px" : "12px 24px",
                 "&:hover": {
                   backgroundColor: "#00E676"
                 }
