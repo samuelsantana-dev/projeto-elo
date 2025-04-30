@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   Accordion,
   AccordionSummary,
@@ -44,10 +44,13 @@ const FAQ = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-    console.log('panel', panel);
+  const handleChange = (panel: number) => (
+    _event: React.SyntheticEvent,
+    isExpanded: boolean
+  ) => {
     setExpanded(isExpanded ? panel : false);
   };
+  
 
   return (
     <Box sx={{
