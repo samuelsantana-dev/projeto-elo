@@ -44,7 +44,8 @@ const FAQ = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleChange = (panel: number) => (isExpanded: boolean) => {
+  const handleChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    console.log('panel', panel);
     setExpanded(isExpanded ? panel : false);
   };
 
