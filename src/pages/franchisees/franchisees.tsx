@@ -70,12 +70,10 @@ export const FranchisePage: React.FC = () => {
           <FranchiseOption 
             type="OPERADOR" 
             imageSrc={imgFranUm}
-            description="Coloque a mão na massa e lidere seu próprio negócio!"
           />
           <FranchiseOption 
             type="INVESTIDOR" 
             imageSrc={imgFranDois} 
-            description="Expanda seu patrimônio sem precisar atuar diretamente no negócio!"
           />
         </OptionsContainer>
         
