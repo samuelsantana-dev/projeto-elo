@@ -6,7 +6,7 @@ const BrotegePiso = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const phoneNumber = '+55 (11) 99999-9999';
+  const phoneNumber = '16997185553';
 
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${phoneNumber}`, "_blank");
@@ -83,7 +83,7 @@ const BrotegePiso = () => {
             },
             transition: 'all 0.3s ease',
             marginBottom: '20px'
-          }}>
+          }}  onClick={handleWhatsAppClick}>
             Seja um <strong> Franqueado</strong>
           </Button>
           <Box
@@ -175,7 +175,7 @@ const BrotegePiso = () => {
           },
           transition: 'all 0.3s ease',
           marginBottom: '20px'
-        }}>
+        }}  onClick={handleWhatsAppClick}>
           Seja um Franqueado
         </Button>
         <Typography variant="body2" sx={{
