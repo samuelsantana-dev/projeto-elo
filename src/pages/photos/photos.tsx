@@ -12,13 +12,13 @@ import {
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-const images = [
-  "src/assets/rectangle-33.png",
-  "src/assets/Rectangle 42.png",
-  "src/assets/Rectangle 37.png",
-  "src/assets/Rectangle 42.png",
-  "src/assets/Rectangle 45.png",
-];
+import img1 from "../../assets/rectangle-33.png";
+import img2 from "../../assets/Rectangle 42.png";
+import img3 from "../../assets/Rectangle 37.png";
+import img4 from "../../assets/Rectangle 42.png";
+import img5 from "../../assets/Rectangle 45.png";
+
+const images = [img1, img2, img3, img4, img5];
 
 export default function Photos() {
   const [selected, setSelected] = useState(0);
@@ -46,17 +46,15 @@ export default function Photos() {
         CONFIRA{" "}
         <Box component="span" sx={{ color: "#06b224", fontWeight: "bold" }}>
           ALGUMAS OBRAS!
-        </Box> 
+        </Box>
       </Typography>
+
       <Grid
         container
         spacing={4}
         alignItems="flex-start"
         justifyContent="center"
-        sx={{
-          maxWidth: 1100,
-          margin: "0 auto",
-        }}
+        sx={{ maxWidth: 1100, margin: "0 auto" }}
       >
         <Grid>
           <Card
@@ -104,7 +102,8 @@ export default function Photos() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid >
+
+        <Grid>
           <Paper
             elevation={4}
             sx={{
@@ -119,7 +118,7 @@ export default function Photos() {
           >
             <Grid container direction="column" spacing={2}>
               {images.map((img, idx) => (
-                <Grid  key={idx}>
+                <Grid key={idx}>
                   <ListItemButton
                     selected={selected === idx}
                     onClick={() => setSelected(idx)}
@@ -136,66 +135,7 @@ export default function Photos() {
                         selected === idx
                           ? "0 0 0 3px #e0ffe3"
                           : "0 2px 10px #eee7",
-                      background:
-                        selected === idx ? "#f4fff4" : "#fff",
-                      transition: "all 0.14s",
-                      p: 0.5,
-                      "&:hover": {
-                        border: "2px solid #b3b3b3",
-                        background: "#f8fbfa",
-                      },
-                      position: "relative",
-                    }}
-                  >
-                    <img
-                      src={img}
-                      alt={`obra-thumb-${idx}`}
-                      style={{
-                        display: "block",
-                        borderRadius: 10,
-                        width: "104px",
-                        height: "64px",
-                        objectFit: "cover",
-                      }}
-                    />
-                    {selected === idx && (
-                      <CheckCircleIcon
-                        sx={{
-                          color: "#06b224",
-                          fontSize: 20,
-                          position: "absolute",
-                          top: 7,
-                          right: 7,
-                          background: "#fff",
-                          borderRadius: "50%",
-                        }}
-                      />
-                    )}
-                  </ListItemButton>
-                </Grid>
-              ))}
-            </Grid>
-            <Grid container direction="column" spacing={2} sx={{ ml: 2 }}>
-              {images.map((img, idx) => (
-                <Grid  key={idx}>
-                  <ListItemButton
-                    selected={selected === idx}
-                    onClick={() => setSelected(idx)}
-                    sx={{
-                      minWidth: 110,
-                      minHeight: 70,
-                      borderRadius: 1.5,
-                      overflow: "hidden",
-                      border:
-                        selected === idx
-                          ? "2px solid #06b224"
-                          : "1px solid #eee",
-                      boxShadow:
-                        selected === idx
-                          ? "0 0 0 3px #e0ffe3"
-                          : "0 2px 10px #eee7",
-                      background:
-                        selected === idx ? "#f4fff4" : "#fff",
+                      background: selected === idx ? "#f4fff4" : "#fff",
                       transition: "all 0.14s",
                       p: 0.5,
                       "&:hover": {
@@ -236,14 +176,8 @@ export default function Photos() {
           </Paper>
         </Grid>
       </Grid>
-      <Box
-        sx={{
-          mt: 5,
-          display: "flex",
-          justifyContent: "center",
-          gap: 2,
-        }}
-      >
+
+      <Box sx={{ mt: 5, display: "flex", justifyContent: "center", gap: 2 }}>
         <Button
           variant="outlined"
           sx={{
