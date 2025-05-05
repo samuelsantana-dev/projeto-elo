@@ -67,6 +67,25 @@ export const FranchisePage: React.FC = () => {
         </InfoBox>
         
         <OptionsContainer>
+          <FranchiseOption
+            imageSrc={imgFranDois}
+            typeLabel="OPERADOR"
+            shortDescription="Coloque a mão na massa e lidere seu próprio negócio!"
+            longDescription={
+              <>
+                <div>
+                  Se você tem perfil empreendedor, gosta de desafios e quer ter um negócio próprio com alta rentabilidade, o modelo Operador é ideal para você. Aqui, você gerencia a operação e está à frente das entregas, liderando sua equipe e garantindo excelência na proteção de pisos.
+                </div>
+                <ul style={{ textAlign: 'left', marginTop: 20 }}>
+                  <li>Baixo investimento inicial e retorno acelerado</li>
+                  <li>Controle total da operação</li>
+                  <li>Alta demanda no setor</li>
+                  <li>Suporte completo da matriz para capacitação e crescimento</li>
+                </ul>
+              </>
+            }
+            bottomNote="Este modelo é para quem quer fazer acontecer e garantir um crescimento sólido no setor de proteção de pisos."
+          />
         <FranchiseOption
           imageSrc={imgFranUm}
           typeLabel="INVESTIDOR"
@@ -87,25 +106,6 @@ export const FranchisePage: React.FC = () => {
           bottomNote="Ideal para quem deseja retorno sólido sem gestão direta."
           showExtra={true}
         />
-          <FranchiseOption
-            imageSrc={imgFranDois}
-            typeLabel="OPERADOR"
-            shortDescription="Coloque a mão na massa e lidere seu próprio negócio!"
-            longDescription={
-              <>
-                <div>
-                  Se você tem perfil empreendedor, gosta de desafios e quer ter um negócio próprio com alta rentabilidade, o modelo Operador é ideal para você. Aqui, você gerencia a operação e está à frente das entregas, liderando sua equipe e garantindo excelência na proteção de pisos.
-                </div>
-                <ul style={{ textAlign: 'left', marginTop: 20 }}>
-                  <li>Baixo investimento inicial e retorno acelerado</li>
-                  <li>Controle total da operação</li>
-                  <li>Alta demanda no setor</li>
-                  <li>Suporte completo da matriz para capacitação e crescimento</li>
-                </ul>
-              </>
-            }
-            bottomNote="Este modelo é para quem quer fazer acontecer e garantir um crescimento sólido no setor de proteção de pisos."
-          />
         </OptionsContainer>
         
         <Box sx={{ textAlign: 'center', mt: 6 }}>
