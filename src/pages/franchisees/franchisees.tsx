@@ -67,13 +67,44 @@ export const FranchisePage: React.FC = () => {
         </InfoBox>
         
         <OptionsContainer>
-          <FranchiseOption 
-            type="OPERADOR" 
-            imageSrc={imgFranUm}
-          />
-          <FranchiseOption 
-            type="INVESTIDOR" 
-            imageSrc={imgFranDois} 
+        <FranchiseOption
+          imageSrc={imgFranUm}
+          typeLabel="INVESTIDOR"
+          shortDescription="Expanda seu patrimônio sem precisar atuar diretamente no negócio!"
+          longDescription={
+            <>
+              <div>
+                Se você busca um modelo de renda passiva, onde o foco está no crescimento estratégico e na maximização de resultados, o modelo Investidor é a escolha certa. Aqui, você investe e conta com uma equipe qualificada para operar o dia a dia do negócio.
+              </div>
+              <ul style={{ textAlign: 'left', marginTop: 20 }}>
+                <li>Gestão operacional delegada a um time especializado</li>
+                <li>Receita recorrente e excelente rentabilidade</li>
+                <li>Possibilidade de expansão mesmo sem atuação presencial</li>
+                <li>Apoio da matriz para otimizar os processos</li>
+              </ul>
+            </>
+          }
+          bottomNote="Ideal para quem deseja retorno sólido sem gestão direta."
+          showExtra={true}
+        />
+          <FranchiseOption
+            imageSrc={imgFranDois}
+            typeLabel="OPERADOR"
+            shortDescription="Coloque a mão na massa e lidere seu próprio negócio!"
+            longDescription={
+              <>
+                <div>
+                  Se você tem perfil empreendedor, gosta de desafios e quer ter um negócio próprio com alta rentabilidade, o modelo Operador é ideal para você. Aqui, você gerencia a operação e está à frente das entregas, liderando sua equipe e garantindo excelência na proteção de pisos.
+                </div>
+                <ul style={{ textAlign: 'left', marginTop: 20 }}>
+                  <li>Baixo investimento inicial e retorno acelerado</li>
+                  <li>Controle total da operação</li>
+                  <li>Alta demanda no setor</li>
+                  <li>Suporte completo da matriz para capacitação e crescimento</li>
+                </ul>
+              </>
+            }
+            bottomNote="Este modelo é para quem quer fazer acontecer e garantir um crescimento sólido no setor de proteção de pisos."
           />
         </OptionsContainer>
         

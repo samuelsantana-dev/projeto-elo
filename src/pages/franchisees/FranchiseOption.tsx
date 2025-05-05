@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography, Button, styled } from '@mui/material';
 
-interface FranchiseOptionProps {
-  type: 'OPERADOR' | 'INVESTIDOR';
-  imageSrc: string;
-}
-
 const StyledBox = styled(Box)<{ expanded: boolean }>(({ expanded }) => ({
   position: 'relative',
   width: '100%',
@@ -70,63 +65,48 @@ const LearnMoreButton = styled(Button)({
   },
 });
 
-export const FranchiseOption: React.FC<FranchiseOptionProps> = ({ type, imageSrc }) => {
+interface FranchiseOptionBaseProps {
+  imageSrc: string;
+  typeLabel: string;
+  shortDescription: string;
+  longDescription: React.ReactNode;
+  bottomNote: string;
+  showExtra?: boolean;
+}
+
+export const FranchiseOption: React.FC<FranchiseOptionBaseProps> = ({
+  imageSrc,
+  typeLabel,
+  shortDescription,
+  longDescription,
+  bottomNote,
+  showExtra = false,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
   const toggleExpand = () => setIsExpanded((prev) => !prev);
-
   const phoneNumber = '16997185553';
 
   const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+    window.open(`https://wa.me/${phoneNumber}`, '_blank');
   };
-
 
   return (
     <StyledBox expanded={isExpanded}>
       <OptionImage sx={{ backgroundImage: `url(${imageSrc})` }} />
 
       <OptionOverlay>
-        <OptionButton>{type}</OptionButton>
+        <OptionButton>{typeLabel}</OptionButton>
 
         <Typography sx={{ mt: 2, fontWeight: 'bold', fontSize: '1.1rem', textAlign: 'center' }}>
-          {type === 'INVESTIDOR'
-            ? ' Expanda seu patrimônio sem precisar atuar diretamente no negócio!'
-            : 'Coloque a mão na massa e lidere seu próprio negócio!'}
+          {shortDescription}
         </Typography>
 
         {isExpanded && (
           <>
-           {type === 'INVESTIDOR' ? (
-            <>
-                 <div>
-                  Se você tem perfil empreendedor, gosta de desafios e quer ter um negócio próprio com alta rentabilidade, o modelo Operador é ideal para você. Aqui, você gerencia a operação e está à frente das entregas, liderando sua equipe e garantindo excelência na proteção de pisos.
-                  </div>
-                  <ul style={{ textAlign: 'left', marginTop: 20 }}>
-                    <li>Baixo investimento inicial e retorno acelerado</li>
-                    <li>Controle total da operação</li>
-                    <li>Alta demanda no setor</li>
-                    <li>Suporte completo da matriz para capacitação e crescimento</li>
-                  </ul>
-                  </>
-              ) : (
-                <> 
-                  <div>
-                    Se você busca um modelo de renda passiva, onde o foco está no crescimento estratégico e na maximização de resultados, o modelo Investidor é a escolha certa. Aqui, você investe e conta com uma equipe qualificada para operar o dia a dia do negócio.
-                  </div>
-                  <ul style={{ textAlign: 'left', marginTop: 20 }}>
-                    <li>Gestão operacional delegada a um time especializado</li>
-                    <li>Receita recorrente e excelente rentabilidade</li>
-                    <li>Possibilidade de expansão mesmo sem atuação presencial</li>
-                    <li>Apoio da matriz para otimizar os processos</li>
-                  </ul>
-                  </>
-              )}
+            <Box>{longDescription}</Box>
 
             <Typography sx={{ mt: 2, fontSize: '0.9rem', textAlign: 'center' }}>
-              {type === 'INVESTIDOR'
-                ? 'Ideal para quem deseja retorno sólido sem gestão direta.'
-                : 'Este modelo é para quem quer fazer acontecer e garantir um crescimento sólido no setor de proteção de pisos.'}
+              {bottomNote}
             </Typography>
           </>
         )}
@@ -136,24 +116,26 @@ export const FranchiseOption: React.FC<FranchiseOptionProps> = ({ type, imageSrc
             {isExpanded ? 'Mostrar menos' : 'Saiba mais'}
           </LearnMoreButton>
 
-          {isExpanded && (
+        </Box>
+
+        {isExpanded && showExtra && (
+          <Box mt={4} p={2} bgcolor="#111" borderRadius="16px">
+            <Typography variant="body2" sx={{ color: '#00FF66' }}>
+              Conheça também nosso modelo de <strong>Investidor Crypto</strong>
+            </Typography>
+            <Button
+              variant="outlined"
+              sx={{ mt: 1, color: '#00FF66', borderColor: '#00FF66' }}
+              onClick={handleWhatsAppClick}
+            >
+              Saiba mais!
+            </Button>
             <Button
               variant="contained"
               sx={{ backgroundColor: '#00FF66', color: '#000', fontWeight: 'bold' }}
               onClick={handleWhatsAppClick}
             >
               Fale com a gente!
-            </Button>
-          )}
-        </Box>
-
-        {isExpanded && type === 'INVESTIDOR' && (
-          <Box mt={4} p={2} bgcolor="#111" borderRadius="16px">
-            <Typography variant="body2" sx={{ color: '#00FF66' }}>
-              Conheça também nosso modelo de <strong>Investidor Crypto</strong>
-            </Typography>
-            <Button variant="outlined" sx={{ mt: 1, color: '#00FF66', borderColor: '#00FF66' }} onClick={handleWhatsAppClick} >
-              Saiba mais!
             </Button>
           </Box>
         )}
