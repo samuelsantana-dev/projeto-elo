@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Typography, Button, styled } from '@mui/material';
 
-const StyledBox = styled(Box)<{ expanded: boolean }>(({ expanded }) => ({
+const StyledBox = styled(Box)<{ expanded: boolean }>(() => ({
   position: 'relative',
   width: '100%',
-  height: expanded ? 'auto' : '600px',
+  height: '600px',
   borderRadius: '24px',
   overflow: 'hidden',
   transition: 'all 0.4s ease-in-out',
