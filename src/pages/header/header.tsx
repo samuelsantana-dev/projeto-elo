@@ -84,7 +84,7 @@ const BrotegePiso = () => {
             transition: 'all 0.3s ease',
             marginBottom: '20px'
           }}  onClick={handleWhatsAppClick}>
-            Seja um <strong> Franqueado</strong>
+            Seja um Franqueado
           </Button>
           <Box
             onClick={handleWhatsAppClick}
