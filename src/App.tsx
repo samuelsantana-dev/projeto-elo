@@ -7,7 +7,7 @@ import Photos from './pages/photos/photos';
 import { On } from './pages/on/on';
 import TecnologiaExclusiva from './pages/tecnologiaExclusiva/tecnologiaExclusiva';
 import Login from './pages/login';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import ContactDetails from './pages/dashboard/contactDetails';
 import ContactList from './pages/dashboard/contactList';
 import BoxComponent from './pages/footer/footer';
@@ -15,13 +15,13 @@ import BoxComponent from './pages/footer/footer';
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/contacts/:id" element={<ContactDetails />} />
           <Route path="/contacts/" element={<ContactList />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
 
       <BrotegePiso />
       <On />
