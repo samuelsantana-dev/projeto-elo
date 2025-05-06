@@ -59,10 +59,6 @@ const LearnMoreButton = styled(Button)({
   borderRadius: 0,
   padding: '5px 0',
   margin: '15px 0',
-  '&:hover': {
-    backgroundColor: 'transparent',
-    opacity: 0.8,
-  },
 });
 
 interface FranchiseOptionBaseProps {
