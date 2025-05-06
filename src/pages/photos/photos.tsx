@@ -139,9 +139,8 @@ export default function PhotoGallery() {
             </CardContent>
           </Card>
 
-          {/* Thumbnail Gallery */}
           <Card sx={{
-            width: '100%',
+            width: isMobile ? '100%' : '150px' ,
             maxWidth: { md: 'auto' },
             backgroundColor: 'background.paper',
             borderRadius: 2,
@@ -191,7 +190,6 @@ export default function PhotoGallery() {
           </Card>
         </Box>
 
-        {/* Action Buttons */}
         <Box sx={{
           mt: { xs: 4, md: 6 },
           display: 'flex',
