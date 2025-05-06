@@ -62,7 +62,7 @@ export const FranchisePage: React.FC = () => {
         
         <InfoBox>
           <Typography variant="body1">
-            Dois formatos de franquia, um mesmo sucesso. <strong>Passe o mouse sobre as opções abaixo para ver os detalhes</strong> e descubra qual faz mais sentido para você.
+            Dois formatos de franquia, um mesmo sucesso. Escolha o que melhor se adequa aos seus objetivos e descubra qual faz mais sentido para você.
           </Typography>
         </InfoBox>
         
