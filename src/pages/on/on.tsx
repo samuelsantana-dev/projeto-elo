@@ -112,14 +112,12 @@ export function On() {
             <HighlightText>franquias no Brasil e EUA</HighlightText>
           </Box>
           
-          {!isSmallScreen && <Box sx={hrStyle(theme)} />}
           
           <Box sx={{ textAlign: 'center', flex: isSmallScreen ? '0 1 auto' : 1 }}>
             <HighlightNumber>10 mil+</HighlightNumber>
             <HighlightText>Obras protegidas</HighlightText>
           </Box>
           
-          {!isSmallScreen && <Box sx={hrStyle(theme)} />}
           
           <Box sx={{ 
             textAlign: 'center', 
