@@ -20,6 +20,7 @@ import img5 from "../../assets/Rectangle 45.png";
 
 const images = [img1, img2, img3, img4, img5];
 
+
 const ThumbnailButton = styled(Button)(({ theme, selected }: { theme?: any; selected: boolean }) => ({
   minWidth: '110px',
   height: '64px',
@@ -54,6 +55,10 @@ export default function PhotoGallery() {
   console.log('isMobile', isMobile);
   const [selected, setSelected] = useState(0);
 
+  const phoneNumber = '16997185553';
+  const handleWhatsAppClick = () => {
+    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+  };
   return (
     <Box sx={{
       width: '100%',
@@ -219,6 +224,7 @@ export default function PhotoGallery() {
           </Button>
           
           <Button 
+           onClick={handleWhatsAppClick}
             variant="contained"
             color="success"
             sx={{
