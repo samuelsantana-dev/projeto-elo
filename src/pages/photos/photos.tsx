@@ -1,16 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Grid,
-  Button,
-  ListItemButton,
-  Paper,
+import { 
+  Box, 
+  Typography, 
+  Card, 
+  CardContent, 
+  Button, 
+  useMediaQuery, 
+  useTheme 
 } from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CheckIcon from "@mui/icons-material/Check";
+import { styled } from "@mui/material/styles";
 
 import img1 from "../../assets/rectangle-33.png";
 import img2 from "../../assets/Rectangle 42.png";
@@ -20,200 +20,223 @@ import img5 from "../../assets/Rectangle 45.png";
 
 const images = [img1, img2, img3, img4, img5];
 
-export default function Photos() {
+const ThumbnailButton = styled(Button)(({ theme, selected }: { theme?: any; selected: boolean }) => ({
+  minWidth: '110px',
+  height: '64px',
+  borderRadius: theme.shape.borderRadius,
+  overflow: 'hidden',
+  position: 'relative',
+  transition: 'all 150ms',
+  padding: '2px',
+  flexShrink: 0,
+  border: selected 
+    ? `2px solid ${theme.palette.success.main}` 
+    : `1px solid ${theme.palette.grey[300]}`,
+  backgroundColor: selected 
+    ? theme.palette.success.light 
+    : theme.palette.background.paper,
+  boxShadow: selected 
+    ? `0 0 0 3px ${theme.palette.success.light}`
+    : 'none',
+  '&:hover': {
+    border: selected 
+      ? `2px solid ${theme.palette.success.main}`
+      : `2px solid ${theme.palette.grey[400]}`,
+    backgroundColor: selected 
+      ? theme.palette.success.light 
+      : theme.palette.grey[50]
+  }
+}));
+
+export default function PhotoGallery() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  console.log('isMobile', isMobile);
   const [selected, setSelected] = useState(0);
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        width: "100%",
-        bgcolor: "#e5e5e5",
-        py: 5,
-        px: 2,
-        boxSizing: "border-box",
-      }}
-    >
-      <Typography
-        variant="h4"
-        align="center"
-        sx={{
-          fontWeight: 400,
-          mb: 4,
-          letterSpacing: "0.5px",
-        }}
-      >
-        CONFIRA{" "}
-        <Box component="span" sx={{ color: "#06b224", fontWeight: "bold" }}>
-          ALGUMAS OBRAS!
-        </Box>
-      </Typography>
+    <Box sx={{
+      width: '100%',
+      minHeight: '100vh',
+      backgroundColor: 'background.default',
+      py: { xs: 4, md: 6 },
+      px: { xs: 2, md: 3 }
+    }}>
+      <Box sx={{
+        maxWidth: '1200px',
+        mx: 'auto'
+      }}>
+        <Typography 
+          variant="h2" 
+          sx={{
+            fontSize: { xs: '1.5rem', md: '2rem', lg: '2.5rem' },
+            fontWeight: 400,
+            textAlign: 'center',
+            mb: { xs: 4, md: 6 },
+            letterSpacing: '0.025em',
+            '& span': {
+              color: 'success.main',
+              fontWeight: 'bold'
+            }
+          }}
+        >
+          CONFIRA <span>ALGUMAS OBRAS!</span>
+        </Typography>
 
-      <Grid
-        container
-        spacing={4}
-        alignItems="flex-start"
-        justifyContent="center"
-        sx={{ maxWidth: 1100, margin: "0 auto" }}
-      >
-        <Grid>
-          <Card
-            sx={{
-              width: 480,
-              borderRadius: 2,
-              boxShadow: "0px 4px 24px 0px #0001",
-            }}
-          >
-            <CardMedia
-              component="img"
-              image={images[selected]}
-              alt="obra principal"
+        <Box sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: 3,
+          justifyContent: 'center',
+          alignItems: { xs: 'center', md: 'flex-start' }
+        }}>
+          {/* Main Card */}
+          <Card sx={{
+            width: '100%',
+            maxWidth: { md: '480px' },
+            borderRadius: 2,
+            overflow: 'hidden',
+            boxShadow: 2
+          }}>
+            <Box 
               sx={{
-                height: 325,
-                objectFit: "cover",
-                borderTopLeftRadius: 8,
-                borderTopRightRadius: 8,
+                height: { xs: '240px', sm: '300px', md: '325px' },
+                backgroundImage: `url(${images[selected]})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
               }}
             />
-            <CardContent sx={{ p: 3 }}>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "#06b224",
-                  fontWeight: 700,
-                  mb: 0.5,
-                  fontSize: "1.2rem",
+            <CardContent sx={{ p: { xs: 2, md: 3 } }}>
+              <Typography 
+                variant="h3" 
+                sx={{ 
+                  color: 'success.main',
+                  fontWeight: 'bold',
+                  fontSize: { xs: '1.125rem', md: '1.25rem' },
+                  mb: 0.5
                 }}
               >
                 Proteção Externa
               </Typography>
-              <Typography
-                variant="body2"
-                sx={{ color: "#222", fontSize: "1rem" }}
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: 'text.secondary',
+                  fontSize: { xs: '0.875rem', md: '1rem' }
+                }}
               >
                 Ribeirão Preto/SP
               </Typography>
-              <Typography
-                variant="body2"
-                sx={{ color: "#b1b1b1", fontSize: "1rem" }}
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: 'text.disabled',
+                  fontSize: { xs: '0.875rem', md: '1rem' }
+                }}
               >
                 Identificação
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
 
-        <Grid>
-          <Paper
-            elevation={4}
+          <Card sx={{
+            width: isMobile ? '100%' : '150px' ,
+            maxWidth: { md: 'auto' },
+            backgroundColor: 'background.paper',
+            borderRadius: 2,
+            boxShadow: 2,
+            p: { xs: 1.5, md: 2 }
+          }}>
+            <Box sx={{
+              display: 'flex',
+              flexDirection: { xs: 'row', md: 'column' },
+              gap: 2,
+              overflowX: { xs: 'auto', md: 'visible' }
+            }}>
+              {images.map((img, idx) => (
+                <ThumbnailButton 
+                  key={idx}
+                  onClick={() => setSelected(idx)}
+                  selected={selected === idx}
+                >
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      borderRadius: 1,
+                      backgroundImage: `url(${img})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  />
+                  {selected === idx && (
+                    <Box sx={{
+                      position: 'absolute',
+                      top: 6,
+                      right: 6,
+                      backgroundColor: 'background.paper',
+                      borderRadius: '50%',
+                      p: 0.5
+                    }}>
+                      <CheckIcon sx={{ 
+                        fontSize: '1rem',
+                        color: 'success.main'
+                      }} />
+                    </Box>
+                  )}
+                </ThumbnailButton>
+              ))}
+            </Box>
+          </Card>
+        </Box>
+
+        <Box sx={{
+          mt: { xs: 4, md: 6 },
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
+          justifyContent: 'center',
+          gap: 2
+        }}>
+          <Button 
+            variant="outlined"
             sx={{
-              px: 1,
+              backgroundColor: 'background.paper',
+              borderColor: 'success.main',
+              color: 'text.secondary',
+              borderRadius: 1,
+              px: 3,
               py: 1,
-              borderRadius: 2,
-              boxShadow: "2px 4px 18px 0px #2222",
-              minHeight: 325,
-              display: "flex",
-              alignItems: "center",
+              fontSize: '1rem',
+              fontWeight: 500,
+              boxShadow: 1,
+              '&:hover': {
+                backgroundColor: 'success.light',
+                borderColor: 'success.dark'
+              }
             }}
           >
-            <Grid container direction="column" spacing={2}>
-              {images.map((img, idx) => (
-                <Grid key={idx}>
-                  <ListItemButton
-                    selected={selected === idx}
-                    onClick={() => setSelected(idx)}
-                    sx={{
-                      minWidth: 110,
-                      minHeight: 70,
-                      borderRadius: 1.5,
-                      overflow: "hidden",
-                      border:
-                        selected === idx
-                          ? "2px solid #06b224"
-                          : "1px solid #eee",
-                      boxShadow:
-                        selected === idx
-                          ? "0 0 0 3px #e0ffe3"
-                          : "0 2px 10px #eee7",
-                      background: selected === idx ? "#f4fff4" : "#fff",
-                      transition: "all 0.14s",
-                      p: 0.5,
-                      "&:hover": {
-                        border: "2px solid #b3b3b3",
-                        background: "#f8fbfa",
-                      },
-                      position: "relative",
-                    }}
-                  >
-                    <img
-                      src={img}
-                      alt={`obra-thumb-${idx}`}
-                      style={{
-                        display: "block",
-                        borderRadius: 10,
-                        width: "104px",
-                        height: "64px",
-                        objectFit: "cover",
-                      }}
-                    />
-                    {selected === idx && (
-                      <CheckCircleIcon
-                        sx={{
-                          color: "#06b224",
-                          fontSize: 20,
-                          position: "absolute",
-                          top: 7,
-                          right: 7,
-                          background: "#fff",
-                          borderRadius: "50%",
-                        }}
-                      />
-                    )}
-                  </ListItemButton>
-                </Grid>
-              ))}
-            </Grid>
-          </Paper>
-        </Grid>
-      </Grid>
-
-      <Box sx={{ mt: 5, display: "flex", justifyContent: "center", gap: 2 }}>
-        <Button
-          variant="outlined"
-          sx={{
-            bgcolor: "#fff",
-            borderColor: "#06b224",
-            color: "#222",
-            borderRadius: 2,
-            px: 4,
-            fontSize: "1rem",
-            fontWeight: 500,
-            boxShadow: "0px 3px 10px #c6eeda22",
-            "&:hover": {
-              bgcolor: "#eaf7ed",
-              borderColor: "#05B63C",
-            },
-          }}
-        >
-          Entre para o mercado de alto padrão!
-        </Button>
-        <Button
-          variant="contained"
-          sx={{
-            bgcolor: "#06b224",
-            color: "#fff",
-            borderRadius: 2,
-            px: 4,
-            fontWeight: 700,
-            fontSize: "1rem",
-            boxShadow: "0px 3.5px 10px #13CE6622",
-            "&:hover": {
-              bgcolor: "#00C853",
-            },
-          }}
-        >
-          Seja um Franqueado!
-        </Button>
+            Entre para o mercado de alto padrão!
+          </Button>
+          
+          <Button 
+            variant="contained"
+            color="success"
+            sx={{
+              color: 'background.paper',
+              borderRadius: 1,
+              px: 3,
+              py: 1,
+              fontSize: '1rem',
+              fontWeight: 'bold',
+              boxShadow: '0 3.5px 10px rgba(19, 206, 102, 0.13)',
+              '&:hover': {
+                backgroundColor: 'success.dark'
+              }
+            }}
+          >
+            Seja um Franqueado!
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
