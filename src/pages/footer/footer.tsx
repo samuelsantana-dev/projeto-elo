@@ -11,12 +11,16 @@ const BoxComponent = (): JSX.Element => {
           <span>Site Principal</span>
           <span>Unidades</span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <AiFillInstagram size={24} />
-            Instagram
+            <a href="https://www.instagram.com/protegepiso/" target="_blank" style={{textDecoration: 'none', color: '#FFF'}}>
+              <AiFillInstagram size={24} />
+              Instagram
+            </a>
           </span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <AiFillFacebook size={24} />
-            Facebook
+            <a href="https://www.facebook.com/protegepiso/" target="_blank" style={{textDecoration: 'none', color: '#FFF'}}>
+              <AiFillFacebook size={24} />
+              Facebook
+            </a>
           </span>
         </div>
 
@@ -29,8 +33,10 @@ const BoxComponent = (): JSX.Element => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' }}>
           <h3>Contatos</h3>
           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <AiFillPhone size={18} />
-            (16) 99718-5553
+            <a href="https://wa.me/16997185553" target="_blank" style={{textDecoration: 'none', color: '#FFF'}}>
+              <AiFillPhone size={18} />
+              (16) 99718-5553
+            </a>
           </span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
             <AiFillPhone size={18} />
