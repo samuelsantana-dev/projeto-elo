@@ -60,13 +60,18 @@ export default function PhotoGallery() {
     window.open(`https://wa.me/${phoneNumber}`, "_blank");
   };
   return (
-    <Box sx={{
+    <Box
+    sx={{
       width: '100%',
-      minHeight: '100vh',
+      height: '100vh',
+      overflow: 'auto', 
+      boxSizing: 'border-box', 
       backgroundColor: 'background.default',
       py: { xs: 4, md: 6 },
       px: { xs: 2, md: 3 }
-    }}>
+    }}
+  >
+  
       <Box sx={{
         maxWidth: '1200px',
         mx: 'auto'
