@@ -115,30 +115,15 @@ export const FranchiseOption: React.FC<FranchiseOptionBaseProps> = ({
           <LearnMoreButton onClick={toggleExpand}>
             {isExpanded ? 'Mostrar menos' : 'Saiba mais'}
           </LearnMoreButton>
-
+          
+          {isExpanded && showExtra && (
+            <LearnMoreButton onClick={handleWhatsAppClick}  sx={{ backgroundColor: '#00FF66', padding: '2px', color: '#000', borderRadius: '50px', fontWeight: 'bold' }}>
+            Fale com a gente!
+          </LearnMoreButton>
+        )}
         </Box>
 
-        {isExpanded && showExtra && (
-          <Box mt={4} p={2} bgcolor="#111" borderRadius="16px">
-            <Typography variant="body2" sx={{ color: '#00FF66' }}>
-              Conheça também nosso modelo de <strong>Investidor Crypto</strong>
-            </Typography>
-            <Button
-              variant="outlined"
-              sx={{ mt: 1, color: '#00FF66', borderColor: '#00FF66' }}
-              onClick={handleWhatsAppClick}
-            >
-              Saiba mais!
-            </Button>
-            <Button
-              variant="contained"
-              sx={{ backgroundColor: '#00FF66', color: '#000', fontWeight: 'bold' }}
-              onClick={handleWhatsAppClick}
-            >
-              Fale com a gente!
-            </Button>
-          </Box>
-        )}
+        
       </OptionOverlay>
     </StyledBox>
   );
