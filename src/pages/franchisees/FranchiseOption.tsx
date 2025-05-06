@@ -92,10 +92,10 @@ export const FranchiseOption: React.FC<FranchiseOptionBaseProps> = ({
 
   return (
     <StyledBox expanded={isExpanded}>
-      <OptionImage sx={{ backgroundImage: `url(${imageSrc})` }} />
+      <OptionImage sx={{ backgroundImage: `url(${imageSrc})`, backgroundSize: 'cover', backgroundPosition: 'top' }} />
 
       <OptionOverlay>
-        <OptionButton>{typeLabel}</OptionButton>
+        <OptionButton onClick={toggleExpand}>{typeLabel}</OptionButton>
 
         <Typography sx={{ mt: 2, fontWeight: 'bold', fontSize: '1.1rem', textAlign: 'center' }}>
           {shortDescription}
